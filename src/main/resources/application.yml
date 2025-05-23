@@ -25,6 +25,12 @@ spring:
       allowed-headers: "*"
       allow-credentials: true
       max-age: 3600
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+    livereload:
+      enabled: true
 
 server:
   port: 8080
@@ -32,4 +38,6 @@ server:
 logging:
   level:
     org.springframework.security: DEBUG
-    org.springframework.web: DEBUG 
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE 
