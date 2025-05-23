@@ -8,7 +8,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/suppliers")
@@ -25,7 +24,7 @@ public class SupplierController {
     }
     
     @PutMapping("/{id}")
-    public ResponseEntity<Supplier> updateSupplier(@PathVariable UUID id, @RequestBody Supplier supplier) {
+    public ResponseEntity<Supplier> updateSupplier(@PathVariable Long id, @RequestBody Supplier supplier) {
         Supplier updatedSupplier = supplierService.updateSupplier(id, supplier);
         return ResponseEntity.ok(updatedSupplier);
     }
@@ -36,12 +35,12 @@ public class SupplierController {
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<Supplier> getSupplierById(@PathVariable UUID id) {
+    public ResponseEntity<Supplier> getSupplierById(@PathVariable Long id) {
         return ResponseEntity.ok(supplierService.getSupplierById(id));
     }
     
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteSupplier(@PathVariable UUID id) {
+    public ResponseEntity<Void> deleteSupplier(@PathVariable Long id) {
         supplierService.deleteSupplier(id);
         return ResponseEntity.noContent().build();
     }

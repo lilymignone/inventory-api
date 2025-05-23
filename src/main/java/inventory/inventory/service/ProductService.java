@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @Transactional
@@ -45,7 +44,7 @@ public class ProductService {
         return productRepository.save(product);
     }
     
-    public Product updateProduct(UUID id, ProductDto productDto) {
+    public Product updateProduct(Long id, ProductDto productDto) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Product not found"));
         
@@ -73,12 +72,12 @@ public class ProductService {
         return productRepository.findAll();
     }
     
-    public Product getProductById(UUID id) {
+    public Product getProductById(Long id) {
         return productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Product not found"));
     }
     
-    public void deleteProduct(UUID id) {
+    public void deleteProduct(Long id) {
         productRepository.deleteById(id);
     }
 }

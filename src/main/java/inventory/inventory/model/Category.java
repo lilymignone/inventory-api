@@ -17,8 +17,8 @@ import java.util.List;
 @Builder
 public class Category {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     
     @Column(name = "created_at_timestamp_without_time_zone")
     private LocalDateTime createdAt;
@@ -33,6 +33,7 @@ public class Category {
     private LocalDateTime updatedAt;
     
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Builder.Default
     private List<Product> products = new ArrayList<>();
     
     @PrePersist

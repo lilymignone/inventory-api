@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @Transactional
@@ -20,7 +19,7 @@ public class SupplierService {
         return supplierRepository.save(supplier);
     }
     
-    public Supplier updateSupplier(UUID id, Supplier supplierDetails) {
+    public Supplier updateSupplier(Long id, Supplier supplierDetails) {
         Supplier supplier = supplierRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Supplier not found"));
         
@@ -37,12 +36,12 @@ public class SupplierService {
         return supplierRepository.findAll();
     }
     
-    public Supplier getSupplierById(UUID id) {
+    public Supplier getSupplierById(Long id) {
         return supplierRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Supplier not found"));
     }
     
-    public void deleteSupplier(UUID id) {
+    public void deleteSupplier(Long id) {
         supplierRepository.deleteById(id);
     }
 }

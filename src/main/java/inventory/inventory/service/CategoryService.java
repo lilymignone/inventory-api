@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @Transactional
@@ -20,7 +19,7 @@ public class CategoryService {
         return categoryRepository.save(category);
     }
     
-    public Category updateCategory(UUID id, Category categoryDetails) {
+    public Category updateCategory(Long id, Category categoryDetails) {
         Category category = categoryRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Category not found"));
         
@@ -34,12 +33,12 @@ public class CategoryService {
         return categoryRepository.findAll();
     }
     
-    public Category getCategoryById(UUID id) {
+    public Category getCategoryById(Long id) {
         return categoryRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Category not found"));
     }
     
-    public void deleteCategory(UUID id) {
+    public void deleteCategory(Long id) {
         categoryRepository.deleteById(id);
     }
 }
