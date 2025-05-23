@@ -1,16 +1,11 @@
-spring.application.name=inventory
-
-
-server:
-  port: 8080
-
 spring:
+  application:
+    name: inventory
   datasource:
-    url: jdbc:postgresql://localhost:5432/inventory_db
-    username: 1234
-    password: password
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 123
     driver-class-name: org.postgresql.Driver
-  
   jpa:
     hibernate:
       ddl-auto: update
@@ -19,12 +14,14 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
-        
   security:
     user:
       name: user
       password: disabled
-      
+
+server:
+  port: 8080
+
 logging:
   level:
-    org.springframework.security: DEBUG
+    org.springframework.security: DEBUG 

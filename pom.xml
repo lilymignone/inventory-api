@@ -11,7 +11,7 @@
 	<groupId>inventory</groupId>
 	<artifactId>inventory</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<n>inventory</n>
+	<name>inventory</name>
 	<description>inventory management application</description>
 	<properties>
 		<java.version>17</java.version>
